@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BottleColors
+  m_Shader: {fileID: -6465566751694194690, guid: 3857342d5d0463d42990e5f33bda15fd, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _FillAmount: 0.34
+    - _SARM: 1
+    - _ScaleAndRotationMultiplier: 1
+    m_Colors:
+    - _C1: {r: 0.8870944, g: 0.27965236, b: 0.27965236, a: 0.7411765}
+    - _C2: {r: 0.13147777, g: 0.17108846, b: 0.8436227, a: 1}
+    - _C3: {r: 0.8291321, g: 0.7076234, b: 0.14123407, a: 1}
+    - _C4: {r: 0.38988745, g: 0.80739623, b: 0.11998216, a: 1}
+    - _Color01: {r: 0.6335095, g: 0.21348079, b: 0.21348079, a: 0}
+    - _Color02: {r: 0.13147777, g: 0.17108846, b: 0.8436227, a: 1}
+    - _Color03: {r: 0.8291321, g: 0.7076234, b: 0.14123407, a: 1}
+    - _Color04: {r: 0.38988745, g: 0.80739623, b: 0.11998216, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &8933028692811170274
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9

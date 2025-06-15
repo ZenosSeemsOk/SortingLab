@@ -41,9 +41,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BottleScale: 1
     - _FillAmount: 0.34
     - _SARM: 1
     - _ScaleAndRotationMultiplier: 1
+    - _WaveAmplitude: 0
+    - _WaveFrequency: 0
+    - _WaveSpeed: 10
     m_Colors:
     - _C1: {r: 0.8870944, g: 0.27965236, b: 0.27965236, a: 0.7411765}
     - _C2: {r: 0.13147777, g: 0.17108846, b: 0.8436227, a: 1}

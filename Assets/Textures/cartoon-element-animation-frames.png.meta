@@ -1,0 +1,451 @@
+fileFormatVersion: 2
+guid: a3db8f807dc406545b6ade42d021d452
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5698857267899674143
+    second: cartoon-element-animation-frames_0
+  - first:
+      213: -861380954364136520
+    second: cartoon-element-animation-frames_1
+  - first:
+      213: 5848010612177113500
+    second: cartoon-element-animation-frames_2
+  - first:
+      213: -1712951504469054943
+    second: cartoon-element-animation-frames_3
+  - first:
+      213: -497688799249421924
+    second: cartoon-element-animation-frames_4
+  - first:
+      213: 6696562543793251320
+    second: cartoon-element-animation-frames_5
+  - first:
+      213: -7391257053854657694
+    second: cartoon-element-animation-frames_6
+  - first:
+      213: -7970161418662074052
+    second: cartoon-element-animation-frames_7
+  - first:
+      213: 6316048439038558446
+    second: cartoon-element-animation-frames_8
+  - first:
+      213: -3306817522748988576
+    second: cartoon-element-animation-frames_9
+  - first:
+      213: -5032160375204934067
+    second: cartoon-element-animation-frames_10
+  - first:
+      213: -742477244756157524
+    second: cartoon-element-animation-frames_11
+  - first:
+      213: 429182427365150262
+    second: cartoon-element-animation-frames_12
+  - first:
+      213: 2780906075000859337
+    second: cartoon-element-animation-frames_13
+  - first:
+      213: -7349640779564866174
+    second: cartoon-element-animation-frames_14
+  - first:
+      213: -6789855778523455708
+    second: cartoon-element-animation-frames_15
+  - first:
+      213: 1039814479258388980
+    second: cartoon-element-animation-frames_16
+  - first:
+      213: -1019619665095754520
+    second: cartoon-element-animation-frames_17
+  - first:
+      213: 566842228275682488
+    second: cartoon-element-animation-frames_18
+  - first:
+      213: 1460799208233176984
+    second: cartoon-element-animation-frames_19
+  - first:
+      213: 999423407492818555
+    second: cartoon-element-animation-frames_20
+  - first:
+      213: 3998135016533339510
+    second: cartoon-element-animation-frames_21
+  - first:
+      213: -5765379145431097119
+    second: cartoon-element-animation-frames_22
+  - first:
+      213: 7574814373650702988
+    second: cartoon-element-animation-frames_23
+  - first:
+      213: -3115258908111806610
+    second: cartoon-element-animation-frames_24
+  - first:
+      213: 2863370216360082598
+    second: cartoon-element-animation-frames_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cartoon-element-animation-frames_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 683
+        width: 365
+        height: 636
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5bef92ece3d78b4eb0c29e2382f7a94
+      internalID: -1831407072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-element-animation-frames_1
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 683
+        width: 365
+        height: 636
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f73dc405f05cd54a8d4618479acebc4
+      internalID: -1013433486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-element-animation-frames_2
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 684
+        width: 365
+        height: 635
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df87e2ceaad449a4d8532eb6364491e1
+      internalID: -1938265103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-element-animation-frames_3
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 683
+        width: 365
+        height: 636
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74e4ef10ad59a94eb23c2751501822b
+      internalID: 651938072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-element-animation-frames_4
+      rect:
+        serializedVersion: 2
+        x: 1535
+        y: 683
+        width: 365
+        height: 636
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eabb85a75b2f1e4587c6eda2b625bd4
+      internalID: 1786514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-element-animation-frames_5
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 33
+        width: 365
+        height: 650
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a445e76a285b194409f1005fe912097c
+      internalID: 1263792654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-element-animation-frames_6
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 33
+        width: 365
+        height: 650
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54634bf131c34c44fbd6e40b057fca7e
+      internalID: -1291245695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-element-animation-frames_7
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 33
+        width: 365
+        height: 650
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1872a3c1ff49204596807b72f4f1583
+      internalID: 814436689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-element-animation-frames_8
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 33
+        width: 365
+        height: 650
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92846d4755af7bf438e8a98a7c12db63
+      internalID: 847249952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-element-animation-frames_9
+      rect:
+        serializedVersion: 2
+        x: 1535
+        y: 33
+        width: 365
+        height: 650
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35fa9dbd182dafb4fa66a560657af03b
+      internalID: 866418443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 81508b96f32d5eb46acde959adf72646
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cartoon-element-animation-frames_0: -1831407072
+      cartoon-element-animation-frames_1: -1013433486
+      cartoon-element-animation-frames_2: -1938265103
+      cartoon-element-animation-frames_3: 651938072
+      cartoon-element-animation-frames_4: 1786514
+      cartoon-element-animation-frames_5: 1263792654
+      cartoon-element-animation-frames_6: -1291245695
+      cartoon-element-animation-frames_7: 814436689
+      cartoon-element-animation-frames_8: 847249952
+      cartoon-element-animation-frames_9: 866418443
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

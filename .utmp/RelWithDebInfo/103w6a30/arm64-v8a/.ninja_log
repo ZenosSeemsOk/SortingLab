@@ -1,0 +1,21 @@
+# ninja log v5
+177	4126	7704684483235998	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	3581cb69dd4de06b
+4130	8432	7704684522866979	C:/Users/acer/Documents/Sajil_Github Projects/Github/Sorting Lab/SortingLab/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/103w6a30/obj/arm64-v8a/libswappywrapper.so	e3d329ae03d1628b
+117	12634	7704684568378537	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	a999f2ab76da40b2
+2	12793	7704684568701736	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	9dd5686798e0c119
+90	12847	7704684568661346	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	64e6802ba917e63e
+159	13019	7704684568222143	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	80060b18f078e3a1
+72	13248	7704684573641859	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	159b3dd623ad6a23
+136	13740	7704684579488945	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	60ba6db1f31646d7
+50	13867	7704684580697473	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	6106041a22496f9e
+29	14088	7704684583003031	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b8484568710f21ec
+14089	14454	7704684586789358	C:/Users/acer/Documents/Sajil_Github Projects/Github/Sorting Lab/SortingLab/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/103w6a30/obj/arm64-v8a/libgame.so	aa49f1e2c943e29b
+87	7345	7714425407741586	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	9dd5686798e0c119
+134	7353	7714425407366101	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	80060b18f078e3a1
+172	7363	7714425407229829	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	64e6802ba917e63e
+187	7373	7714425407993010	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	a999f2ab76da40b2
+39	7561	7714425411047013	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	159b3dd623ad6a23
+158	8601	7714425421541269	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	6106041a22496f9e
+210	9424	7714425429524408	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	60ba6db1f31646d7
+72	9863	7714425433416430	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b8484568710f21ec
+9871	10632	7714425441216997	C:/Users/acer/Documents/Sajil_Github Projects/Github/Sorting Lab/SortingLab/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/103w6a30/obj/arm64-v8a/libgame.so	aa49f1e2c943e29b

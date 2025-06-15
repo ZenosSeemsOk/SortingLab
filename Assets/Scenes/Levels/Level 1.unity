@@ -649,6 +649,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60a4a3b929427d4caf95e6cc3d4efe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  completionPanel: {fileID: 0}
+  pausePanel: {fileID: 0}
+  wonLevel: {fileID: 0}
+  Level: 0
 --- !u!4 &1636471249
 Transform:
   m_ObjectHideFlags: 0

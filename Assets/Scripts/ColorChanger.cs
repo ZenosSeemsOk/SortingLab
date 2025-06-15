@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class ColorChanger : MonoBehaviour
 {
+    [Header("Animation")]
+    [SerializeField] private GameObject smokeAnimation;
+
+
     public SpriteRenderer mainBottleSR;
     public SpriteRenderer bottleMaskSR;
 
@@ -29,6 +33,8 @@ public class ColorChanger : MonoBehaviour
 
     public LineRenderer lineRenderer;
 
+    private MusicManager musicManager;
+
     [HideInInspector]
     public float bottleScale = 1f; // Assigned by BottleSpawner
 
@@ -44,9 +50,18 @@ public class ColorChanger : MonoBehaviour
     private Vector3 endPosition;
 
     private float baseLineLength = 1.45f;
+    private bool isPouringActive = false; // Track pouring state
+
+    private GameManager gameManager;
+
+    // Add a constant for your shader property name to avoid typos
+    private const string SHADER_IS_POURING_PROP = "_IsPouring"; // This name MUST match your shader property
 
     void Start()
     {
+        gameManager = GameManager.instance;
+        musicManager = MusicManager.Instance;
+
         // Try finding a LineRenderer in the scene (not prefab-based)
         if (lineRenderer == null)
         {
@@ -84,10 +99,14 @@ public class ColorChanger : MonoBehaviour
 
         UpdateColorsOnShader();
         UpdateTopColorValues();
+
+        // Ensure pouring effect is off at start
+        bottleMaskSR.material.SetFloat(SHADER_IS_POURING_PROP, 0.0f);
     }
 
     void Update()
     {
+        IsBottleInValidState();
         if (Input.GetKeyUp(KeyCode.P) && justThisBottle)
         {
             UpdateTopColorValues();
@@ -111,7 +130,11 @@ public class ColorChanger : MonoBehaviour
     public bool IsBottleInValidState()
     {
         if (numberOfColorsInBottle == 0)
+        {
+
             return true;
+        }
+
         if (numberOfColorsInBottle != 4)
             return false;
 
@@ -121,7 +144,23 @@ public class ColorChanger : MonoBehaviour
             if (!bottleColors[i].Equals(referenceColor))
                 return false;
         }
+
+        Color smokeColor = topColor;
+        smokeColor.a = 1;
+        smokeAnimation.GetComponent<SpriteRenderer>().color = smokeColor;
+
+
+        smokeAnimation.SetActive(true);
+        StartCoroutine(DisableComponent());
         return true;
+    }
+
+    IEnumerator DisableComponent()
+    {
+        yield return new WaitForSeconds(1f);
+        smokeAnimation.GetComponent<SpriteRenderer>().enabled = false;
+        smokeAnimation.SetActive(false);
+
     }
 
     public void StartColorTransfer()
@@ -175,6 +214,14 @@ public class ColorChanger : MonoBehaviour
         mainBottleSR.sortingOrder = 1;
         bottleMaskSR.sortingOrder = 0;
         transform.position = endPosition;
+
+        StartCoroutine(WaitToSendGameOver());
+    }
+
+    IEnumerator WaitToSendGameOver()
+    {
+        yield return new WaitForSeconds(1f);
+        gameManager.CheckGameOver();
     }
 
     IEnumerator RotateBottle()
@@ -192,6 +239,15 @@ public class ColorChanger : MonoBehaviour
 
             if (fillAmounts[numberOfColorsInBottle] > FillAmountCurve.Evaluate(angleValue) + 0.005f)
             {
+
+                if (!isPouringActive)
+                {
+                    StartPouringSound();
+                    isPouringActive = true;
+                    // Start the pouring effect in the shader
+                    bottleMaskSR.material.SetFloat(SHADER_IS_POURING_PROP, 1.0f);
+                }
+
                 if (lineRenderer != null && !lineRenderer.enabled)
                 {
                     Color solidColor = topColor;
@@ -211,10 +267,26 @@ public class ColorChanger : MonoBehaviour
                 bottleMaskSR.material.SetFloat("_FillAmount", FillAmountCurve.Evaluate(angleValue));
                 colorChangerRef.FillUp(FillAmountCurve.Evaluate(lastAngleValue) - FillAmountCurve.Evaluate(angleValue));
             }
+            else if (isPouringActive) // If pouring was active but now stopped (liquid level is caught up)
+            {
+                StopPouringSound();
+                isPouringActive = false;
+                // Stop the pouring effect in the shader
+                bottleMaskSR.material.SetFloat(SHADER_IS_POURING_PROP, 0.0f);
+            }
 
             t += Time.deltaTime * RotationSpeedMultiplier.Evaluate(angleValue);
             lastAngleValue = angleValue;
             yield return null;
+        }
+
+        // Ensure pouring effect is off once rotation finishes
+        if (isPouringActive)
+        {
+            StopPouringSound();
+            isPouringActive = false;
+            // Stop the pouring effect in the shader
+            bottleMaskSR.material.SetFloat(SHADER_IS_POURING_PROP, 0.0f);
         }
 
         angleValue = directionMultiplier * rotationValues[rotationIndex];
@@ -254,6 +326,64 @@ public class ColorChanger : MonoBehaviour
         bottleMaskSR.material.SetFloat("_SARM", ScaleAndRotationMultiplierCurve.Evaluate(0f));
 
         StartCoroutine(MoveBottleBack());
+    }
+
+
+
+    private void StartPouringSound()
+    {
+        // Use the MusicManager singleton instance
+        if (MusicManager.Instance != null)
+        {
+            Debug.Log("Pouring Sound Started");
+            MusicManager.Instance.PlayPouringSound();
+        }
+        else
+        {
+            Debug.LogWarning("MusicManager instance not found!");
+        }
+    }
+
+    private void StopPouringSound()
+    {
+        // Since PlayPouringSound uses PlayOneShot, we need to stop the SFX AudioSource
+        if (MusicManager.Instance != null && MusicManager.Instance.sfxAudioSource != null)
+        {
+            // Stop the SFX audio source if it's playing the pouring sound
+            if (MusicManager.Instance.sfxAudioSource.isPlaying)
+            {
+                MusicManager.Instance.sfxAudioSource.Stop();
+                Debug.Log("Pouring Sound Stopped");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("MusicManager instance or SFX AudioSource not found!");
+        }
+    }
+
+    // Alternative approach if you need more control over the pouring sound
+    private AudioSource pouringAudioSource; // Cache reference if needed
+
+    private void StartPouringSoundWithControl()
+    {
+        if (MusicManager.Instance != null && MusicManager.Instance.sfxAudioSource != null &&
+            MusicManager.Instance.pouringSound != null && MusicManager.Instance.IsSfxEnabled)
+        {
+            // Stop any currently playing sound on the SFX source
+            MusicManager.Instance.sfxAudioSource.Stop();
+
+            // Set the clip and play it (allows for stopping)
+            MusicManager.Instance.sfxAudioSource.clip = MusicManager.Instance.pouringSound;
+            MusicManager.Instance.sfxAudioSource.volume = MusicManager.Instance.pouringVolume * MusicManager.Instance.GetMasterSfxVolume();
+            MusicManager.Instance.sfxAudioSource.Play();
+
+            Debug.Log("Pouring Sound Started with Control");
+        }
+        else
+        {
+            Debug.LogWarning("Cannot start pouring sound - MusicManager, SFX AudioSource, or pouring clip not available, or SFX is disabled");
+        }
     }
 
     public void UpdateColorsOnShader()

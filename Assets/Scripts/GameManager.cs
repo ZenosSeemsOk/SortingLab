@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private TextMeshProUGUI wonLevel;
+    [SerializeField] private TextMeshProUGUI coinsFinal;
 
     [Header("Settings UI")]
     [SerializeField] private Button sfxToggle;
     [SerializeField] private Button musicToggle;
     [SerializeField] private Sprite onSprite;
     [SerializeField] private Sprite offSprite;
+    [SerializeField] private TextMeshProUGUI gameCoins;
 
     [Header("Audio Clips")]
     [SerializeField] private AudioClip levelCompleteSound;
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
     public int Level;
     public static int PersistentLevel;
     public static GameManager instance;
+    private Coins coins;
 
     // Events for settings changes
     public System.Action<bool> OnMusicToggled;
@@ -44,13 +47,21 @@ public class GameManager : MonoBehaviour
         InitializeAudioUI();
     }
 
+    public void UpdateCoin()
+    {
+        coinsFinal.text = coins.amount.ToString();
+        gameCoins.text = coins.amount.ToString();
+    }
+
     void Start()
     {
+        coins = Coins.Instance;
         Time.timeScale = 1f;
         Level = PersistentLevel > 0 ? PersistentLevel : LevelSelection.Instance.currentLevel;
 
         InitializeSettings();
         SetupAudioListeners();
+        UpdateCoin();
         StartCoroutine(WaitForBottleSpawn());
 
         // Start background music for the level
@@ -175,6 +186,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        coins.amount -= 25;
         PlayButtonSound();
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

@@ -7,13 +7,13 @@ public class SwipeMenuController : MonoBehaviour
     [Header("Menu Settings")]
     public List<GameObject> panels = new List<GameObject>();
     public float swipeThreshold = 50f;
-    public float animationSpeed = 8f; // Increased default speed
-    public float swipeDelay = 0.1f; // Minimum time between swipes
-    public bool enableMouseInput = true; // For testing in editor
+    public float animationSpeed = 8f; // Adjust for desired swipe animation
+    public float swipeDelay = 0.3f; // Prevent too rapid swiping
+    public bool enableMouseInput = true;
 
     [Header("UI References")]
     public Transform panelContainer;
-    public ScrollRect scrollRect; // Optional: if using ScrollRect
+    public ScrollRect scrollRect; // Optional
 
     private int currentPanelIndex = 0;
     private Vector2 startTouchPosition;
@@ -22,7 +22,6 @@ public class SwipeMenuController : MonoBehaviour
     private Vector3 targetPosition;
     private float lastSwipeTime = 0f;
 
-    // Panel positions
     private List<Vector3> panelPositions = new List<Vector3>();
 
     void Start()
@@ -46,7 +45,6 @@ public class SwipeMenuController : MonoBehaviour
             return;
         }
 
-        // Ensure all panels are children of panelContainer
         foreach (GameObject panel in panels)
         {
             if (panel.transform.parent != panelContainer)
@@ -62,21 +60,18 @@ public class SwipeMenuController : MonoBehaviour
 
         for (int i = 0; i < panels.Count; i++)
         {
-            // Position panels horizontally
             Vector3 position = new Vector3(i * Screen.width, 0, 0);
             panelPositions.Add(position);
             panels[i].transform.localPosition = position;
         }
 
-        targetPosition = panelPositions[0];
+        targetPosition = panelContainer.localPosition;
     }
 
     void HandleInput()
     {
-        // Check if we're in swipe cooldown
-        if (Time.time - lastSwipeTime < swipeDelay) return;
+        if (isAnimating || Time.time - lastSwipeTime < swipeDelay) return;
 
-        // Touch input
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -92,7 +87,6 @@ public class SwipeMenuController : MonoBehaviour
             }
         }
 
-        // Mouse input (for testing in editor)
         if (enableMouseInput)
         {
             if (Input.GetMouseButtonDown(0))
@@ -113,16 +107,14 @@ public class SwipeMenuController : MonoBehaviour
 
         if (Mathf.Abs(swipeDirection.x) > swipeThreshold)
         {
-            lastSwipeTime = Time.time; // Update last swipe time
+            lastSwipeTime = Time.time;
 
             if (swipeDirection.x > 0)
             {
-                // Swipe right - go to previous panel
                 SwipeToPreviousPanel();
             }
             else
             {
-                // Swipe left - go to next panel
                 SwipeToNextPanel();
             }
         }
@@ -130,20 +122,16 @@ public class SwipeMenuController : MonoBehaviour
 
     public void SwipeToNextPanel()
     {
-        if (currentPanelIndex < panels.Count - 1)
-        {
-            currentPanelIndex++;
-            ShowPanel(currentPanelIndex);
-        }
+        if (isAnimating || currentPanelIndex >= panels.Count - 1) return;
+        currentPanelIndex++;
+        ShowPanel(currentPanelIndex);
     }
 
     public void SwipeToPreviousPanel()
     {
-        if (currentPanelIndex > 0)
-        {
-            currentPanelIndex--;
-            ShowPanel(currentPanelIndex);
-        }
+        if (isAnimating || currentPanelIndex <= 0) return;
+        currentPanelIndex--;
+        ShowPanel(currentPanelIndex);
     }
 
     public void ShowPanel(int index)
@@ -154,18 +142,18 @@ public class SwipeMenuController : MonoBehaviour
         targetPosition = new Vector3(-panelPositions[index].x, 0, 0);
         isAnimating = true;
 
-        // Optional: Update UI indicators
         OnPanelChanged(index);
+        Debug.Log($"Switched to panel {index} at position {targetPosition}");
     }
 
     void AnimateToTarget()
     {
         if (!isAnimating) return;
 
-        panelContainer.localPosition = Vector3.Lerp(
+        panelContainer.localPosition = Vector3.MoveTowards(
             panelContainer.localPosition,
             targetPosition,
-            animationSpeed * Time.deltaTime
+            animationSpeed * Screen.width * Time.deltaTime
         );
 
         if (Vector3.Distance(panelContainer.localPosition, targetPosition) < 0.1f)
@@ -175,13 +163,11 @@ public class SwipeMenuController : MonoBehaviour
         }
     }
 
-    // Override this method to handle panel change events
     protected virtual void OnPanelChanged(int newPanelIndex)
     {
         Debug.Log($"Switched to panel {newPanelIndex}");
     }
 
-    // Public methods for UI buttons
     public void NextPanel()
     {
         SwipeToNextPanel();
@@ -197,7 +183,6 @@ public class SwipeMenuController : MonoBehaviour
         ShowPanel(index);
     }
 
-    // Get current panel info
     public int GetCurrentPanelIndex()
     {
         return currentPanelIndex;

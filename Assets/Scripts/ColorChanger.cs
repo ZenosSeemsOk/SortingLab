@@ -6,7 +6,6 @@ public class ColorChanger : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private GameObject smokeAnimation;
 
-
     public SpriteRenderer mainBottleSR;
     public SpriteRenderer bottleMaskSR;
 
@@ -53,12 +52,17 @@ public class ColorChanger : MonoBehaviour
     private bool isPouringActive = false; // Track pouring state
 
     private GameManager gameManager;
+    private Coins coins;
+
+    // Add flag to prevent multiple coin awards
+    private bool hasBeenCompleted = false;
 
     // Add a constant for your shader property name to avoid typos
     private const string SHADER_IS_POURING_PROP = "_IsPouring"; // This name MUST match your shader property
 
     void Start()
     {
+        coins = Coins.Instance;
         gameManager = GameManager.instance;
         musicManager = MusicManager.Instance;
 
@@ -129,9 +133,12 @@ public class ColorChanger : MonoBehaviour
 
     public bool IsBottleInValidState()
     {
+        // If already completed, don't process again
+        if (hasBeenCompleted)
+            return true;
+
         if (numberOfColorsInBottle == 0)
         {
-
             return true;
         }
 
@@ -145,10 +152,14 @@ public class ColorChanger : MonoBehaviour
                 return false;
         }
 
+        // Mark as completed to prevent multiple executions
+        hasBeenCompleted = true;
+
         Color smokeColor = topColor;
         smokeColor.a = 1;
         smokeAnimation.GetComponent<SpriteRenderer>().color = smokeColor;
 
+        gameManager.UpdateCoin();
 
         smokeAnimation.SetActive(true);
         StartCoroutine(DisableComponent());
@@ -158,9 +169,15 @@ public class ColorChanger : MonoBehaviour
     IEnumerator DisableComponent()
     {
         yield return new WaitForSeconds(1f);
+        coins.amount += 5;
         smokeAnimation.GetComponent<SpriteRenderer>().enabled = false;
         smokeAnimation.SetActive(false);
+    }
 
+    // Method to reset completion status if needed (e.g., when restarting level)
+    public void ResetCompletionStatus()
+    {
+        hasBeenCompleted = false;
     }
 
     public void StartColorTransfer()
@@ -327,8 +344,6 @@ public class ColorChanger : MonoBehaviour
 
         StartCoroutine(MoveBottleBack());
     }
-
-
 
     private void StartPouringSound()
     {

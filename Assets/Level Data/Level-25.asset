@@ -13,21 +13,57 @@ MonoBehaviour:
   m_Name: Level-25
   m_EditorClassIdentifier: 
   bottles:
-  - colors: []
-    numberOfColorsInBottle: 0
-  - colors: []
-    numberOfColorsInBottle: 0
-  - colors: []
-    numberOfColorsInBottle: 0
-  - colors: []
-    numberOfColorsInBottle: 0
-  - colors: []
-    numberOfColorsInBottle: 0
-  - colors: []
-    numberOfColorsInBottle: 0
-  - colors: []
-    numberOfColorsInBottle: 0
-  - colors: []
-    numberOfColorsInBottle: 0
-  - colors: []
-    numberOfColorsInBottle: 0
+  - colors:
+    - {r: 0, g: 0.2556727, b: 1, a: 0}
+    - {r: 0.41960785, g: 0.79607844, b: 0.46666667, a: 0}
+    - {r: 0.9088302, g: 0, b: 0, a: 0}
+    - {r: 0, g: 0.2556727, b: 1, a: 0}
+    numberOfColorsInBottle: 4
+  - colors:
+    - {r: 0.41960785, g: 0.79607844, b: 0.46666667, a: 0}
+    - {r: 0.9088302, g: 0, b: 0, a: 0}
+    - {r: 0, g: 0.2556727, b: 1, a: 0}
+    - {r: 0, g: 0, b: 0, a: 0}
+    numberOfColorsInBottle: 3
+  - colors:
+    - {r: 0.41960785, g: 0.79607844, b: 0.46666667, a: 0}
+    - {r: 0, g: 0.2556727, b: 1, a: 0}
+    - {r: 0.9088302, g: 0, b: 0, a: 0}
+    - {r: 0, g: 0, b: 0, a: 0}
+    numberOfColorsInBottle: 3
+  - colors:
+    - {r: 0.9088302, g: 0, b: 0, a: 0}
+    - {r: 0.4, g: 1, b: 0.8666667, a: 0}
+    - {r: 0.41960785, g: 0.79607844, b: 0.46666667, a: 0}
+    - {r: 1, g: 0.8509804, b: 0.23921569, a: 0}
+    numberOfColorsInBottle: 4
+  - colors:
+    - {r: 0.3019608, g: 0.5882353, b: 1, a: 0}
+    - {r: 1, g: 0.8509804, b: 0.23921569, a: 0}
+    - {r: 0.4, g: 1, b: 0.8666667, a: 0}
+    - {r: 1, g: 0.41960785, b: 0.41960785, a: 0}
+    numberOfColorsInBottle: 4
+  - colors:
+    - {r: 0.3019608, g: 0.5882353, b: 1, a: 0}
+    - {r: 0.3019608, g: 0.5882353, b: 1, a: 0}
+    - {r: 1, g: 0.8509804, b: 0.23921569, a: 0}
+    - {r: 1, g: 0.06890565, b: 0.9596764, a: 0}
+    numberOfColorsInBottle: 4
+  - colors:
+    - {r: 1, g: 0.41960785, b: 0.41960785, a: 0}
+    - {r: 0.3019608, g: 0.5882353, b: 1, a: 0}
+    - {r: 0.4, g: 1, b: 0.8666667, a: 0}
+    - {r: 1, g: 0.06890565, b: 0.9596764, a: 0}
+    numberOfColorsInBottle: 4
+  - colors:
+    - {r: 1, g: 0.06890565, b: 0.9596764, a: 0}
+    - {r: 1, g: 0.06890565, b: 0.9596764, a: 0}
+    - {r: 0.4, g: 1, b: 0.8666667, a: 0}
+    - {r: 1, g: 0.41960785, b: 0.41960785, a: 0}
+    numberOfColorsInBottle: 4
+  - colors:
+    - {r: 1, g: 0.8509804, b: 0.23921569, a: 0}
+    - {r: 1, g: 0.41960785, b: 0.41960785, a: 0}
+    - {r: 0, g: 0, b: 0, a: 0}
+    - {r: 0, g: 0, b: 0, a: 0}
+    numberOfColorsInBottle: 2

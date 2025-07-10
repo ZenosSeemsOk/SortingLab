@@ -16,8 +16,10 @@ public class GameManager : MonoBehaviour
     [Header("Settings UI")]
     [SerializeField] private Button sfxToggle;
     [SerializeField] private Button musicToggle;
-    [SerializeField] private Sprite onSprite;
-    [SerializeField] private Sprite offSprite;
+    [SerializeField] private Sprite sfxOnSprite;
+    [SerializeField] private Sprite sfxOffSprite;
+    [SerializeField] private Sprite musicOnSprite;
+    [SerializeField] private Sprite musicOffSprite;
     [SerializeField] private TextMeshProUGUI gameCoins;
 
     [Header("Audio Clips")]
@@ -47,11 +49,6 @@ public class GameManager : MonoBehaviour
         InitializeAudioUI();
     }
 
-    public void UpdateCoin()
-    {
-        coinsFinal.text = coins.amount.ToString();
-        gameCoins.text = coins.amount.ToString();
-    }
 
     void Start()
     {
@@ -61,14 +58,23 @@ public class GameManager : MonoBehaviour
 
         InitializeSettings();
         SetupAudioListeners();
-        UpdateCoin();
         StartCoroutine(WaitForBottleSpawn());
+
+        Coins.Instance.OnCoinsChanged += UpdateCoinDisplay;
+        UpdateCoinDisplay(Coins.Instance.amount); // Initialize the display
 
         // Start background music for the level
         if (MusicManager.Instance != null)
         {
             MusicManager.Instance.PlayBackgroundMusic(0); // You can vary this by level
         }
+    }
+
+
+    private void UpdateCoinDisplay(int newAmount)
+    {
+        coinsFinal.text = newAmount.ToString();
+        gameCoins.text = newAmount.ToString();
     }
 
     private void InitializeAudioUI()
@@ -186,10 +192,18 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        coins.amount -= 25;
-        PlayButtonSound();
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (Coins.Instance.SpendCoins(25))
+        {
+            // Proceed with restart
+            PlayButtonSound();
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+            Debug.Log("Not enough coins to restart!");
+            // Optionally, show a message to the player
+        }
     }
 
     public void Next()
@@ -281,17 +295,17 @@ public class GameManager : MonoBehaviour
 
     private void UpdateSfxSprite(bool isOn)
     {
-        if (sfxImage != null && onSprite != null && offSprite != null)
+        if (sfxImage != null && sfxOnSprite != null && sfxOffSprite != null)
         {
-            sfxImage.sprite = isOn ? onSprite : offSprite;
+            sfxImage.sprite = isOn ? sfxOnSprite : sfxOffSprite;
         }
     }
 
     private void UpdateMusicSprite(bool isOn)
     {
-        if (musicImage != null && onSprite != null && offSprite != null)
+        if (musicImage != null && musicOnSprite != null && musicOffSprite != null)
         {
-            musicImage.sprite = isOn ? onSprite : offSprite;
+            musicImage.sprite = isOn ? musicOnSprite : musicOffSprite;
         }
     }
 

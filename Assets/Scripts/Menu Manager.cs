@@ -10,8 +10,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button musicToggle;
 
     [Header("Toggle Sprites")]
-    [SerializeField] private Sprite onSprite;
-    [SerializeField] private Sprite offSprite;
+    [SerializeField] private Sprite sfxOnSprite;
+    [SerializeField] private Sprite sfxOffSprite;
+    [SerializeField] private Sprite musicOnSprite;
+    [SerializeField] private Sprite musicOffSprite;
 
     [Header("Settings")]
     [SerializeField] private bool startWithMusicOn = true;
@@ -22,6 +24,9 @@ public class MenuManager : MonoBehaviour
     private bool isSettingsOpen;
     private bool isMusicOn;
     private bool isSfxOn;
+
+
+    [SerializeField] private AudioClip buttonClickSound;
 
     // Events for other systems to subscribe to
     public System.Action<bool> OnMusicToggled;
@@ -85,11 +90,13 @@ public class MenuManager : MonoBehaviour
 
     public void OnPlayEasy()
     {
+        MusicManager.Instance.PlaySFX(buttonClickSound, 0.6f);
         SceneManager.LoadScene("LevelSelection");
     }
 
     public void ToggleSettings()
     {
+        MusicManager.Instance.PlaySFX(buttonClickSound, 0.6f);
         if (settingsUI == null) return;
 
         isSettingsOpen = !isSettingsOpen;
@@ -98,6 +105,7 @@ public class MenuManager : MonoBehaviour
 
     private void ToggleSfx()
     {
+        MusicManager.Instance.PlaySFX(buttonClickSound, 0.6f);
         isSfxOn = !isSfxOn;
         UpdateSfxSprite();
         SaveSettings();
@@ -116,6 +124,7 @@ public class MenuManager : MonoBehaviour
 
     private void ToggleMusic()
     {
+        MusicManager.Instance.PlaySFX(buttonClickSound, 0.6f);
         isMusicOn = !isMusicOn;
         UpdateMusicSprite();
         SaveSettings();
@@ -135,17 +144,17 @@ public class MenuManager : MonoBehaviour
     private void UpdateSfxSprite()
     {
         if (sfxImage != null)
-            sfxImage.sprite = isSfxOn ? onSprite : offSprite;
+            sfxImage.sprite = isSfxOn ? sfxOnSprite : sfxOffSprite;
         else if (sfxToggle.TryGetComponent<SpriteRenderer>(out var spriteRenderer))
-            spriteRenderer.sprite = isSfxOn ? onSprite : offSprite;
+            spriteRenderer.sprite = isSfxOn ? sfxOnSprite : sfxOffSprite;
     }
 
     private void UpdateMusicSprite()
     {
         if (musicImage != null)
-            musicImage.sprite = isMusicOn ? onSprite : offSprite;
+            musicImage.sprite = isMusicOn ? musicOnSprite : musicOffSprite;
         else if (musicToggle.TryGetComponent<SpriteRenderer>(out var spriteRenderer))
-            spriteRenderer.sprite = isMusicOn ? onSprite : offSprite;
+            spriteRenderer.sprite = isMusicOn ? musicOnSprite : musicOffSprite;
     }
 
     private void SaveSettings()

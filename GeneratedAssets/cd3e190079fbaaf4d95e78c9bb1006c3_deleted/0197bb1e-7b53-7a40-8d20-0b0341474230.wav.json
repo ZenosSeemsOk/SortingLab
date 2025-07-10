@@ -1,0 +1,13 @@
+{
+    "asset": "cd3e190079fbaaf4d95e78c9bb1006c3",
+    "fileName": "0197bb1e-7b53-7a40-8d20-0b0341474230.wav",
+    "prompt": "Generate a button click sound for a casual mobile game",
+    "negativePrompt": "should not be screechy and should not stand out too much",
+    "model": "0ee39b33-2893-4e0f-8c46-0e0bdd4eda85",
+    "modelName": "Text to Sound",
+    "customSeed": -1,
+    "w3CTraceId": "578c0b8060762f94171d6a4a2665914a",
+    "duration": 1.25,
+    "autoTrim": true,
+    "hasReference": false
+}

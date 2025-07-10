@@ -10,6 +10,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private Sprite lockedSprite;
     [SerializeField] private Sprite unlockedSprite;
 
+    [SerializeField] private AudioClip buttonClickSound;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class ButtonManager : MonoBehaviour
 
     public void PickLevel(int id)
     {
+        MusicManager.Instance.PlaySFX(buttonClickSound, 0.6f);
         LevelSelection.Instance.currentLevel = id;
         SceneManager.LoadScene("GameScene");
     }
@@ -65,6 +67,7 @@ public class ButtonManager : MonoBehaviour
 
     public void MainMenu()
     {
+        MusicManager.Instance.PlaySFX(buttonClickSound, 0.6f);
         SceneManager.LoadScene("Menu Scene");
     }
 
